@@ -45,6 +45,14 @@ namespace StatsCalculator.Test
             Assert.AreEqual(6,result);
         }
 
+        [Test]
+        public void ReturnMaximumNumber9WhenGiven789()
+        {
+            var calculator = new StatsCalc();
+            var result = calculator.MaximumValueFrom(new int[] {7,8,9});
+            Assert.AreEqual(9,result);
+        }
+
         
     }
 }

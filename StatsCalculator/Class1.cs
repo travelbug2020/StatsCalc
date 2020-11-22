@@ -13,11 +13,7 @@ namespace StatsCalculator
 
         public int MaximumValueFrom(int[] listOfNumbers)
         {
-            if (listOfNumbers[0] == 4)
-            {
-                return 6;
-            }
-            return 3;
+            return listOfNumbers.Max();
         }
     }
 }
