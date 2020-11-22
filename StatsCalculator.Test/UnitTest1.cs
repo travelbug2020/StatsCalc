@@ -1,3 +1,4 @@
+using System.Reflection;
 using NUnit.Framework;
 
 namespace StatsCalculator.Test
@@ -30,6 +31,14 @@ namespace StatsCalculator.Test
         }
 
         [Test]
+        public void ReturnMaximumNumber10WhenGiven583210()
+        {
+            var calculator = new StatsCalc();
+            var result = calculator.MaximumValueFrom(new int[] { 8, 3, 5,2,10 });
+            Assert.AreEqual(10, result);
+        }
+
+        [Test]
         public void ReturnMaximumNumber3WhenGiven123()
         {
             var calculator = new StatsCalc();
@@ -53,6 +62,52 @@ namespace StatsCalculator.Test
             Assert.AreEqual(9,result);
         }
 
-        
+        [Test]
+        public void ReturnNumberOfElementsIs4When1234()
+        {
+            var calculator = new StatsCalc();
+            var result = calculator.NumberOfElements(new int[] {1,2,3,4});
+            Assert.AreEqual(4, result);
+        }
+
+        [Test]
+        public void ReturnNumberOfElementsIs2When3410Neg2()
+        {
+            var calculator = new StatsCalc();
+            var result = calculator.NumberOfElements(new int[] {3,4,10,-2});
+            Assert.AreEqual(4,result);
+        }
+        [Test]
+        public void ReturnNumberOfElementsIs5()
+        {
+            var calculator = new StatsCalc();
+            var result = calculator.NumberOfElements(new int[] { -1, 10, 11,25,67 });
+            Assert.AreEqual(5, result);
+        }
+
+        [Test]
+        public void ReturnAverageValue20WhenGiven102030()
+        {
+            var calculator = new StatsCalc();
+            var result = calculator.AverageValue(new int[] { 10, 20, 30});
+            Assert.AreEqual(20, result);
+        }
+
+        [Test]
+        public void ReturnAverageValue9Point23WhenGiven6Neg22013()
+        {
+            var calculator = new StatsCalc();
+            var result = calculator.AverageValue(new int[] { 6, -2, 20, 13 });
+            Assert.AreEqual(9.25, result);
+        }
+
+        [Test]
+        public void ReturnAverageValue3Point5WhenGiven6Neg22013()
+        {
+            var calculator = new StatsCalc();
+            var result = calculator.AverageValue(new int[] { 4, 5, 6, 1, 2, 3 });
+            Assert.AreEqual(3.5, result);
+        }
+
     }
 }

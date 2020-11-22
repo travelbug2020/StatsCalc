@@ -15,5 +15,15 @@ namespace StatsCalculator
         {
             return listOfNumbers.Max();
         }
+
+        public int NumberOfElements(int[] listOfNumbers)
+        {
+            return listOfNumbers.Length;
+        }
+
+        public double AverageValue(int[] listOfNumbers)
+        {
+            return listOfNumbers.Average();
+        }
     }
 }
