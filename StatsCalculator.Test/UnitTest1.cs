@@ -1,111 +1,94 @@
-using System.Reflection;
 using NUnit.Framework;
 
 namespace StatsCalculator.Test
 {
     public class StatsCalculatorShould
     {
-
-        [Test]
-        public void ReturnMinimumNumber1WhenGiven123()
+        private StatsCalc _calculator;
+        
+        [SetUp]
+        public void SetUp()
         {
-            var calculator = new StatsCalc();
-            var result = calculator.MinimumValueFrom(new int[] { 1, 2, 3});
-            Assert.AreEqual(1,result);
+            _calculator = new StatsCalc();
         }
 
-        [Test]
-        public void ReturnMinimumNumber4WhenGiven456()
+        [TestCase(new[]{1,2,3},1)]
+        [TestCase(new[]{4,5,6},4)]
+        [TestCase(new[]{7,8,9},7)]
+        public void ReturnMinimum_WhenSearchingForMinimum_GivenNumbers(int[] numbers,int minimum)
         {
-            var calculator = new StatsCalc();
-            var result = calculator.MinimumValueFrom(new int[] { 4, 5, 6});
-            Assert.AreEqual(4, result);
-        }
+            var result = _calculator.MinimumValueFrom(numbers);
 
-        [Test]
-        public void ReturnMinimumNumber7WhenGiven789()
-        {
-            var calculator = new StatsCalc();
-            var result = calculator.MinimumValueFrom(new int[] {7,8,9});
-            Assert.AreEqual(7,result);
+            Assert.AreEqual(minimum,result);
         }
-
-        [Test]
-        public void ReturnMaximumNumber10WhenGiven583210()
+        [TestCase(new int[]{5,8,3,2,10},10)]
+        [TestCase(new int[]{1,2,3},3)]
+        [TestCase(new int[]{4,5,6},6)]
+        [TestCase(new int[]{7,8,9},9)]
+        
+        public void ReturnMaximum_WhenSearchingForMaximum_GivenNumbers(int[] numbers, int maximum)
         {
-            var calculator = new StatsCalc();
-            var result = calculator.MaximumValueFrom(new int[] { 8, 3, 5,2,10 });
-            Assert.AreEqual(10, result);
-        }
+            var result = _calculator.MaximumValueFrom(numbers);
 
-        [Test]
-        public void ReturnMaximumNumber3WhenGiven123()
-        {
-            var calculator = new StatsCalc();
-            var result = calculator.MaximumValueFrom(new int[]{1,2,3});
-            Assert.AreEqual(3,result);
-        }
-
-        [Test]
-        public void ReturnMaximumNumber6WhenGiven456()
-        {
-            var calculator = new StatsCalc();
-            var result = calculator.MaximumValueFrom(new int[]{4,5,6});
-            Assert.AreEqual(6,result);
-        }
-
-        [Test]
-        public void ReturnMaximumNumber9WhenGiven789()
-        {
-            var calculator = new StatsCalc();
-            var result = calculator.MaximumValueFrom(new int[] {7,8,9});
-            Assert.AreEqual(9,result);
+            Assert.AreEqual(maximum,result);
         }
 
         [Test]
         public void ReturnNumberOfElementsIs4When1234()
         {
-            var calculator = new StatsCalc();
-            var result = calculator.NumberOfElements(new int[] {1,2,3,4});
+            
+            
+            var result = _calculator.NumberOfElements(1, 2, 3, 4);
+            
             Assert.AreEqual(4, result);
         }
 
         [Test]
         public void ReturnNumberOfElementsIs2When3410Neg2()
         {
-            var calculator = new StatsCalc();
-            var result = calculator.NumberOfElements(new int[] {3,4,10,-2});
+            
+            
+            var result = _calculator.NumberOfElements(3, 4, 10, -2);
+            
             Assert.AreEqual(4,result);
         }
         [Test]
         public void ReturnNumberOfElementsIs5()
         {
-            var calculator = new StatsCalc();
-            var result = calculator.NumberOfElements(new int[] { -1, 10, 11,25,67 });
+            
+            
+            var result = _calculator.NumberOfElements(-1, 10, 11, 25, 67);
+            
             Assert.AreEqual(5, result);
         }
 
         [Test]
         public void ReturnAverageValue20WhenGiven102030()
         {
-            var calculator = new StatsCalc();
-            var result = calculator.AverageValue(new int[] { 10, 20, 30});
+            
+            
+            var result = _calculator.AverageValue(10, 20, 30);
+            
             Assert.AreEqual(20, result);
         }
 
         [Test]
         public void ReturnAverageValue9Point23WhenGiven6Neg22013()
         {
-            var calculator = new StatsCalc();
-            var result = calculator.AverageValue(new int[] { 6, -2, 20, 13 });
+            
+            
+            var result = _calculator.AverageValue(6, -2, 20, 13);
+            
             Assert.AreEqual(9.25, result);
         }
 
         [Test]
         public void ReturnAverageValue3Point5WhenGiven6Neg22013()
         {
-            var calculator = new StatsCalc();
-            var result = calculator.AverageValue(new int[] { 4, 5, 6, 1, 2, 3 });
+            
+            
+            var result = _calculator.AverageValue(4, 5, 6, 1, 2, 3);
+            
             Assert.AreEqual(3.5, result);
         }
 

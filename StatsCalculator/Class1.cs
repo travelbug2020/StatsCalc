@@ -5,23 +5,22 @@ namespace StatsCalculator
 {
     public class StatsCalc
     {
-
-        public int MinimumValueFrom(int[] listOfNumbers)
+        public int MinimumValueFrom(params int[] listOfNumbers)
         {
             return listOfNumbers.Min();
         }
 
-        public int MaximumValueFrom(int[] listOfNumbers)
+        public int MaximumValueFrom(params int[] listOfNumbers)
         {
             return listOfNumbers.Max();
         }
 
-        public int NumberOfElements(int[] listOfNumbers)
+        public int NumberOfElements(params int[] listOfNumbers)
         {
             return listOfNumbers.Length;
         }
 
-        public double AverageValue(int[] listOfNumbers)
+        public double AverageValue(params int[] listOfNumbers)
         {
             return listOfNumbers.Average();
         }
