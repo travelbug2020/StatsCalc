@@ -4,22 +4,13 @@ namespace StatsCalculator.Test
 {
     public class StatsCalculatorShould
     {
-        private StatsCalc _calculator;
-        
-        [SetUp]
-        public void SetUp()
-        {
-            _calculator = new StatsCalc();
-        }
 
         [TestCase(new[]{1,2,3},1)]
         [TestCase(new[]{4,5,6},4)]
         [TestCase(new[]{7,8,9},7)]
         public void ReturnMinimum_WhenSearchingForMinimum_GivenNumbers(int[] numbers,int minimum)
         {
-            var result = _calculator.MinimumValueFrom(numbers);
-
-            Assert.AreEqual(minimum,result);
+            Assert.AreEqual(minimum,numbers.MinimumValue());
         }
 
         [TestCase(new int[]{5,8,3,2,10},10)]
@@ -28,9 +19,7 @@ namespace StatsCalculator.Test
         [TestCase(new int[]{7,8,9},9)]
         public void ReturnMaximum_WhenSearchingForMaximum_GivenNumbers(int[] numbers, int maximum)
         {
-            var result = _calculator.MaximumValueFrom(numbers);
-
-            Assert.AreEqual(maximum,result);
+            Assert.AreEqual(maximum,numbers.MaximumValue());
         }
 
         [TestCase(new []{1,2,3,4},4)]
@@ -38,7 +27,7 @@ namespace StatsCalculator.Test
         [TestCase(new []{-1,10,11,25,67},5)]
         public void ReturnCount_WhenSearchingForNumberOfElements_GivenNumbers(int[] numbers, int count)
         {
-            var result = _calculator.NumberOfElements(numbers);
+            var result = StatsCalc.NumberOfElements(numbers);
 
             Assert.AreEqual(count,result);
         }
@@ -48,7 +37,7 @@ namespace StatsCalculator.Test
         [TestCase(new []{4,5,6,1,2,3},3.5)]
         public void ReturnAverage_WhenSearchingForAverage_GivenNumbers(int[] numbers, decimal average)
         {
-            var result = _calculator.AverageValue(numbers);
+            var result = StatsCalc.AverageValue(numbers);
 
             Assert.AreEqual(average,result);
         }

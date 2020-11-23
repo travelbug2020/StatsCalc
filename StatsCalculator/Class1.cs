@@ -1,26 +1,25 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 
 namespace StatsCalculator
 {
-    public class StatsCalc
+    public static class StatsCalc
     {
-        public int MinimumValueFrom(params int[] listOfNumbers)
+        public static int MinimumValue(this int[] listOfNumbers)
         {
             return listOfNumbers.Min();
         }
 
-        public int MaximumValueFrom(params int[] listOfNumbers)
+        public static int MaximumValue(this int[] listOfNumbers)
         {
             return listOfNumbers.Max();
         }
 
-        public int NumberOfElements(params int[] listOfNumbers)
+        public static int NumberOfElements(params int[] listOfNumbers)
         {
             return listOfNumbers.Length;
         }
 
-        public double AverageValue(params int[] listOfNumbers)
+        public static double AverageValue(params int[] listOfNumbers)
         {
             return listOfNumbers.Average();
         }
