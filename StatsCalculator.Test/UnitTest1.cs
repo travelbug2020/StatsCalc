@@ -27,9 +27,7 @@ namespace StatsCalculator.Test
         [TestCase(new []{-1,10,11,25,67},5)]
         public void ReturnCount_WhenSearchingForNumberOfElements_GivenNumbers(int[] numbers, int count)
         {
-            var result = StatsCalc.NumberOfElements(numbers);
-
-            Assert.AreEqual(count,result);
+            Assert.AreEqual(count,numbers.Count());
         }
 
         [TestCase(new []{10,20,30},20)]
@@ -37,9 +35,7 @@ namespace StatsCalculator.Test
         [TestCase(new []{4,5,6,1,2,3},3.5)]
         public void ReturnAverage_WhenSearchingForAverage_GivenNumbers(int[] numbers, decimal average)
         {
-            var result = StatsCalc.AverageValue(numbers);
-
-            Assert.AreEqual(average,result);
+            Assert.AreEqual(average,numbers.AverageValue());
         }
     }
 }

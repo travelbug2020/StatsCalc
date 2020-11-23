@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Globalization;
+using System.Linq;
 
 namespace StatsCalculator
 {
@@ -6,22 +7,53 @@ namespace StatsCalculator
     {
         public static int MinimumValue(this int[] listOfNumbers)
         {
-            return listOfNumbers.Min();
+            
+            var smallestNumber = listOfNumbers[0]; 
+            foreach (var number in listOfNumbers)
+            {
+                if (number < smallestNumber)
+                {
+                    smallestNumber = number;
+                }
+            }
+
+            return smallestNumber;
         }
 
         public static int MaximumValue(this int[] listOfNumbers)
         {
-            return listOfNumbers.Max();
+            var largestNumber = listOfNumbers[0];
+            foreach (var number in listOfNumbers)
+            {
+                if (number > largestNumber)
+                {
+                    largestNumber = number;
+                }
+            }
+
+            return largestNumber;
         }
 
-        public static int NumberOfElements(params int[] listOfNumbers)
+        public static int Count(this int[] listOfNumbers)
         {
-            return listOfNumbers.Length;
+            var count = 0;
+            foreach (var number in listOfNumbers)
+            {
+                count+=1;
+            }
+            return count;
         }
 
-        public static double AverageValue(params int[] listOfNumbers)
+        public static double AverageValue(this int[] listOfNumbers)
         {
-            return listOfNumbers.Average();
+            double numbersAddedTogether = 0;
+            foreach (var number in listOfNumbers)
+            {
+                numbersAddedTogether += number;
+            }
+
+            var average = numbersAddedTogether / Count(listOfNumbers);
+            return average;
         }
     }
 }
